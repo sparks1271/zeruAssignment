@@ -1,0 +1,142 @@
+# EigenLayer Restaking Info API
+
+This is a Node.js + Express backend service that exposes mocked EigenLayer restaking data via a REST API.  
+It demonstrates the structure and endpoints expected for a real-world EigenLayer Restaking Info API project.
+
+## 📦 Features
+
+- Fetch **restakers info** (mock data)
+- Fetch **validators metadata** (mock data)
+- Fetch **reward insights for a given wallet address** (mock data)
+- Clean, modular Express.js structure
+- MongoDB (local) used for mock data storage
+
+---
+
+## 🚀 Setup Instructions
+
+### 1. Clone this repository:
+
+```bash
+git clone 
+cd https://github.com/sparks1271/zeruAssignment.git
+
+
+### Install dependencies:
+npm install EXPRESS CORS MONGOOSE NODEMON DOTENV
+
+
+##  Configure environment variables
+
+ALL Environment Variables are Stored in Dotenv File
+
+
+## Insert Data into the database with mock data:
+
+     eigenLayerinfo.js
+
+## Start the server
+
+npm  start
+
+## server will run on
+http://localhost:5000
+
+
+## These are the api end points
+
+    ## Get Restakers List
+
+    http://localhost:5000/api/eigenlayer/restakers
+
+    GET /api/eigenlayer/restakers
+
+
+    ## Response
+
+        [
+            {
+                "userAddress": "0xUser1",
+                "amountRestaked": 120,
+                "validatorAddress": "0xValidator1"
+            },
+        ]
+    
+
+    ## Get Validators Info
+
+    http://localhost:5000/api/eigenlayer/validators
+
+    GET /api/eigenlayer/validators
+
+
+    ## Response
+
+        [
+            {
+                "operatorAddress": "0xValidator1",
+                "totalDelegated": 370,
+                "slashHistory": [
+                { "timestamp": "2024-06-20T...", "amount": 5, "reason": "Downtime" }
+                ],
+                "status": "active"
+            },
+        ]
+
+    ## Get Rewards for a Specific Address
+
+        http://localhost:5000/api/eigenlayer/rewards/:address
+
+        GET /api/eigenlayer/rewards/0xUser1
+
+        ## Response
+
+        {
+            "userAddress": "0xUser1",
+            "totalRewards": 15,
+            "perValidatorRewards": [
+                { "validatorAddress": "0xValidator1", "amount": 15, "timestamp": "2024-06-20T..." }
+            ]
+        }
+
+
+## Data Source Explanation
+    1.Mock Data Only:
+
+    2.All data is manually inserted in eigenLayerinfo.js — no real on-chain or subgraph data is fetched.
+
+    3.MongoDB is used to store this example dataset for demonstration.
+
+
+
+## Assumptions
+    1.This project mocks EigenLayer data for assignment purposes only.
+
+    2.No real on-chain or subgraph API is queried.
+
+    3.Rewards, restakers, validators are dummy data as per assignment requirement.
+
+    4.In real usage, you would replace "eigenLayerinfo.js" and database filling with actual on-chain fetching scripts or subgraph queries.
+
+
+## Technologies Used
+
+    1.Node.js
+
+    2.Express.js
+
+    3.MongoDB
+
+    4.Mongoose
+
+    5.dotenv
+
+    6.cors
+
+## Acknowledgements
+
+    EigenLayer Restaking concept
+
+    This project was built as part of a backend assignment.
+
+
